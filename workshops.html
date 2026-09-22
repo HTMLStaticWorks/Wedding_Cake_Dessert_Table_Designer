@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+
+<head>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FF5D8F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M20 12v10H4V12'/><path d='M2 7h20v5H2z'/><path d='M12 22V7'/><path d='M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z'/><path d='M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z'/></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Branding & Personalization | Cherish & Co.</title>
+    <meta name="description"
+        content="Personalize your wedding favors and custom gift boxes. Custom monogram hot-foil stamping, wax seal crests, calligraphy tags, and bespoke silk ribbons.">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.435.0/dist/umd/lucide.min.js"></script>
+    <style>
+        .branding-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding: 35px;
+            text-align: left;
+        }
+
+        @media (max-width: 768px) {
+            .branding-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 20px !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .branding-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Shared Navbar -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width: 28px; height: 28px; color: var(--color-primary);">
+                    <path d="M20 12v10H4V12"/>
+                    <path d="M2 7h20v5H2z"/>
+                    <path d="M12 22V7"/>
+                    <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/>
+                    <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
+                </svg>
+                <span>Cherish & Co.</span>
+            </a>
+
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="home2.html" class="nav-link">Luxury Suite</a>
+                <a href="services.html" class="nav-link">Products</a>
+                <a href="workshops.html" class="nav-link active">Custom Branding</a>
+                <a href="blog.html" class="nav-link">Bulk Orders</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" aria-label="Toggle Theme">
+                    <svg data-lucide="moon" class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: block;">
+                        <path d="M12 3a6 6 0 0 0 9 9 9 0 1 1-9-9Z"/>
+                    </svg>
+                    <svg data-lucide="sun" class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                        <circle cx="12" cy="12" r="4"/>
+                        <path d="M12 2v2"/>
+                        <path d="M12 20v2"/>
+                        <path d="m4.93 4.93 1.41 1.41"/>
+                        <path d="m17.66 17.66 1.41 1.41"/>
+                        <path d="M2 12h2"/>
+                        <path d="M20 12h2"/>
+                        <path d="m6.34 17.66-1.41 1.41"/>
+                        <path d="m19.07 4.93-1.41 1.41"/>
+                    </svg>
+                </button>
+                <button class="rtl-toggle" aria-label="Toggle Direction">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 8h14M15 4l4 4-4 4"/>
+                        <path d="M19 16H5M9 20l-4-4 4-4"/>
+                    </svg>
+                </button>
+                <a href="contact.html" class="btn btn-primary" style="padding: 8px 18px; font-size: 0.85rem;">Enquire Now</a>
+                <button class="menu-btn" aria-label="Open Menu">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="4" x2="20" y1="12" y2="12"/>
+                        <line x1="4" x2="20" y1="6" y2="6"/>
+                        <line x1="4" x2="20" y1="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <div class="overlay"></div>
+    <div class="drawer">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+            <a href="index.html" class="logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width: 28px; height: 28px; color: var(--color-primary);">
+                    <path d="M20 12v10H4V12"/>
+                    <path d="M2 7h20v5H2z"/>
+                    <path d="M12 22V7"/>
+                    <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/>
+                    <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
+                </svg><span>Cherish & Co.</span>
+            </a>
+        </div>
+        <nav style="display: flex; flex-direction: column; gap: 20px;">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="home2.html" class="nav-link">Luxury Suite</a>
+            <a href="services.html" class="nav-link">Products</a>
+            <a href="workshops.html" class="nav-link active">Custom Branding</a>
+            <a href="blog.html" class="nav-link">Bulk Orders</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <a href="login.html" class="nav-link">Account Login</a>
+        </nav>
+        <div style="margin-top: auto; display: flex; gap: 20px; justify-content: center;">
+            <button class="theme-toggle" style="background: var(--bg-secondary); width: 50px; height: 50px;">
+                <svg data-lucide="moon" class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: block;">
+                    <path d="M12 3a6 6 0 0 0 9 9 9 0 1 1-9-9Z"/>
+                </svg>
+                <svg data-lucide="sun" class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                    <circle cx="12" cy="12" r="4"/>
+                    <path d="M12 2v2"/>
+                    <path d="M12 20v2"/>
+                    <path d="m4.93 4.93 1.41 1.41"/>
+                    <path d="m17.66 17.66 1.41 1.41"/>
+                    <path d="M2 12h2"/>
+                    <path d="M20 12h2"/>
+                    <path d="m6.34 17.66-1.41 1.41"/>
+                    <path d="m19.07 4.93-1.41 1.41"/>
+                </svg>
+            </button>
+            <button class="rtl-toggle" style="background: var(--bg-secondary); width: 50px; height: 50px;" aria-label="Toggle Direction">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 8h14M15 4l4 4-4 4"/>
+                    <path d="M19 16H5M9 20l-4-4 4-4"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Hero Section (Bespoke Personalization Studio) -->
+    <section class="hero-bg" style="background-image: url('image/pexels-george-dolgikh-551816-1303087.jpg'); padding: 130px 20px 90px;">
+        <div class="container" data-animate>
+            <span class="section-subtitle">Bespoke Personalization Studio</span>
+            <h1 class="section-title">Custom Branding & Monogramming</h1>
+            <p style="max-width: 700px; margin: 0 auto 30px;">Imprint your unique couple crest, monogram, wedding date, and bespoke color palette onto every favor detail with artisanal precision.</p>
+            <a href="#branding-options" class="btn btn-primary">Explore Personalization Options</a>
+        </div>
+    </section>
+
+    <!-- Branding Options Grid -->
+    <section class="section" id="branding-options">
+        <div class="container">
+            <header class="section-header" data-animate>
+                <span class="section-subtitle">Fine Details</span>
+                <h2 class="section-title">Our Signature Personalization Elements</h2>
+                <p style="max-width: 650px; margin: 15px auto 0; color: var(--text-secondary);">Combine multiple techniques to create an unboxing experience that speaks your love language.</p>
+            </header>
+
+            <div class="grid branding-grid" style="grid-template-columns: repeat(3, 1fr);" data-animate>
+                <!-- Option 1 -->
+                <div class="card branding-card" style="padding: 0; overflow: hidden;">
+                    <div class="img-container" style="height: 220px; border-radius: 16px 16px 0 0;">
+                        <img src="image/pexels-george-dolgikh-551816-1303087.jpg" alt="Hot Foil Monogram Stamping" class="img-crop-card">
+                    </div>
+                    <div style="padding: 30px; display: flex; flex-direction: column; flex-grow: 1;">
+                        <span style="color: var(--color-primary); font-size: 0.85rem; font-weight: 700; letter-spacing: 1px;">PRECISION EMBOSSING</span>
+                        <h3 style="margin: 10px 0;">Hot Foil Monogram Stamping</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px;">Metallic Gold, Rose Gold, Champagne, Copper, and Silver foil pressed into linen gift boxes, matchboxes, and favor tags.</p>
+                        <ul style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 20px; align-items: flex-start;">
+                            <li>• Custom couple initials & date</li>
+                            <li>• Upload your vector wedding crest</li>
+                            <li>• Crisp, metallic reflective sheen</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Option 2 -->
+                <div class="card branding-card" style="padding: 0; overflow: hidden;">
+                    <div class="img-container" style="height: 220px; border-radius: 16px 16px 0 0;">
+                        <img src="image/pexels-karola-g-5713550.jpg" alt="Bespoke Wax Seal Crests" class="img-crop-card">
+                    </div>
+                    <div style="padding: 30px; display: flex; flex-direction: column; flex-grow: 1;">
+                        <span style="color: var(--color-primary); font-size: 0.85rem; font-weight: 700; letter-spacing: 1px;">HEIRLOOM TRADITION</span>
+                        <h3 style="margin: 10px 0;">Bespoke Wax Seal Crests</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px;">Hand-poured, flexible wax seals in Antique Gold, Pearl Blush, Sage Green, and French Navy with self-adhesive backing.</p>
+                        <ul style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 20px; align-items: flex-start;">
+                            <li>• 35+ wax color shades</li>
+                            <li>• Botanical sprig & gold leaf infill</li>
+                            <li>• Keep your custom engraved brass stamp</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Option 3 -->
+                <div class="card branding-card" style="padding: 0; overflow: hidden;">
+                    <div class="img-container" style="height: 220px; border-radius: 16px 16px 0 0;">
+                        <img src="image/pexels-shkrabaanthony-5486826.jpg" alt="Hand-Dyed Silk & Velvet Ribbons" class="img-crop-card">
+                    </div>
+                    <div style="padding: 30px; display: flex; flex-direction: column; flex-grow: 1;">
+                        <span style="color: var(--color-primary); font-size: 0.85rem; font-weight: 700; letter-spacing: 1px;">COLOR HARMONY</span>
+                        <h3 style="margin: 10px 0;">Hand-Dyed Silk & Velvet Ribbons</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px;">Frayed-edge chiffon and soft velvet ribbons custom-dyed using organic botanical dyes to match your floral arrangements.</p>
+                        <ul style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 20px; align-items: flex-start;">
+                            <li>• 100% natural Mulberry silk</li>
+                            <li>• Custom Pantone color-matching</li>
+                            <li>• Soft hand-feel and romantic drape</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Fragrance & Keepsake Engraving Section -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <header class="section-header" data-animate>
+                <span class="section-subtitle">Sensory & Lasting</span>
+                <h2 class="section-title">Fragrance Formulation & Laser Engraving</h2>
+                <p style="max-width: 650px; margin: 15px auto 0; color: var(--text-secondary);">Combine sensory fragrances with permanent heirloom materials for gifts that endure for decades.</p>
+            </header>
+
+            <div class="split-grid" style="gap: 35px; align-items: stretch;" data-animate>
+                <!-- Fragrance Card -->
+                <div class="card" style="text-align: left; padding: 0; overflow: hidden; background: var(--bg-primary); display: flex; flex-direction: column;">
+                    <div class="img-container" style="height: 250px;">
+                        <img src="image/pexels-alleksana-6478864.jpg" alt="Signature Wedding Candle Fragrance" class="img-crop-card">
+                    </div>
+                    <div style="padding: 35px; display: flex; flex-direction: column; flex-grow: 1;">
+                        <div class="icon-box-large">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+                            </svg>
+                        </div>
+                        <span style="color: var(--color-primary); font-size: 0.85rem; font-weight: 700; letter-spacing: 1px;">SENSORY MEMORY</span>
+                        <h3 style="margin: 8px 0 12px; font-size: 1.4rem;">Create Your Signature Wedding Scent</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 22px;">Select from our curated library of 18 artisan fragrance oils to formulate a custom scent for your wedding candle favors. When guests light their candle months later, the aroma instantly recalls your vows.</p>
+                        
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 30px;">
+                            <span class="budget-badge"><i data-lucide="sparkle" style="width: 12px; height: 12px;"></i> Velvet Peony</span>
+                            <span class="budget-badge"><i data-lucide="sparkle" style="width: 12px; height: 12px;"></i> White Amber</span>
+                            <span class="budget-badge"><i data-lucide="sparkle" style="width: 12px; height: 12px;"></i> French Fig</span>
+                            <span class="budget-badge"><i data-lucide="sparkle" style="width: 12px; height: 12px;"></i> Oakmoss Lavender</span>
+                        </div>
+                        <a href="contact.html?interest=scent" class="btn btn-secondary" style="width: 100%; justify-content: center; margin-top: auto;">Explore Fragrance Library</a>
+                    </div>
+                </div>
+
+                <!-- Laser Engraving Card -->
+                <div class="card" style="text-align: left; padding: 0; overflow: hidden; background: var(--bg-primary); display: flex; flex-direction: column;">
+                    <div class="img-container" style="height: 250px;">
+                        <img src="image/pexels-cottonbro-6832992.jpg" alt="Laser Engraved Keepsakes and Packaging" class="img-crop-card">
+                    </div>
+                    <div style="padding: 35px; display: flex; flex-direction: column; flex-grow: 1;">
+                        <div class="icon-box-large">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                                <polyline points="2 17 12 22 22 17"/>
+                                <polyline points="2 12 12 17 22 12"/>
+                            </svg>
+                        </div>
+                        <span style="color: var(--color-primary); font-size: 0.85rem; font-weight: 700; letter-spacing: 1px;">PERMANENT HEIRLOOM</span>
+                        <h3 style="margin: 8px 0 12px; font-size: 1.4rem;">Laser Engraved Hardwoods & Marble</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 22px;">We offer micro-precision laser engraving on olive wood honey dippers, walnut bottle openers, and genuine Carrara marble coasters with guest names, wedding crests, or memorable dates.</p>
+                        
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 30px;">
+                            <span class="budget-badge"><i data-lucide="sparkle" style="width: 12px; height: 12px;"></i> Italian Marble</span>
+                            <span class="budget-badge"><i data-lucide="sparkle" style="width: 12px; height: 12px;"></i> Natural Walnut</span>
+                            <span class="budget-badge"><i data-lucide="sparkle" style="width: 12px; height: 12px;"></i> Tuscan Olivewood</span>
+                            <span class="budget-badge"><i data-lucide="sparkle" style="width: 12px; height: 12px;"></i> Brushed Brass</span>
+                        </div>
+                        <a href="contact.html?interest=custom-branding" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: auto;">Book Laser Engraving</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Branding Process Steps -->
+    <section class="section">
+        <div class="container">
+            <header class="section-header" data-animate>
+                <span class="section-subtitle">How It Works</span>
+                <h2 class="section-title">The Bespoke Branding Journey</h2>
+            </header>
+
+            <div class="grid" style="grid-template-columns: repeat(4, 1fr);" data-animate>
+                <div class="card" style="text-align: center; padding: 30px 20px;">
+                    <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--bg-secondary); color: var(--color-primary); font-weight: 700; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">1</div>
+                    <h4>Mood Board Review</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Share your invitations, Pinterest board, Pantone colors, and font preferences.</p>
+                </div>
+                <div class="card" style="text-align: center; padding: 30px 20px;">
+                    <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--bg-secondary); color: var(--color-primary); font-weight: 700; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">2</div>
+                    <h4>Digital Proofing</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Our graphic designer creates 3 custom proof layouts with your monogram.</p>
+                </div>
+                <div class="card" style="text-align: center; padding: 30px 20px;">
+                    <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--bg-secondary); color: var(--color-primary); font-weight: 700; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">3</div>
+                    <h4>Physical Sample</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Receive a finalized physical sample to touch, smell, and approve in person.</p>
+                </div>
+                <div class="card" style="text-align: center; padding: 30px 20px;">
+                    <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--bg-secondary); color: var(--color-primary); font-weight: 700; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">4</div>
+                    <h4>Studio Assembly</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Our artisan team hand-assembles and packages each favor with white gloves.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Creative Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <a href="index.html" class="logo">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width: 26px; height: 26px; color: var(--color-primary);">
+                            <path d="M20 12v10H4V12"/>
+                            <path d="M2 7h20v5H2z"/>
+                            <path d="M12 22V7"/>
+                            <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/>
+                            <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
+                        </svg>
+                        <span>Cherish & Co.</span>
+                    </a>
+                    <p class="footer-tagline">Turning your thoughtful gestures into timeless handcrafted treasures since 2018.</p>
+                    <div style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; background: var(--bg-secondary); border-radius: 20px; font-size: 0.85rem; font-weight: 600; color: var(--color-primary); margin-top: 15px;">
+                        <i data-lucide="heart-handshake" style="width: 16px; height: 16px;"></i> Handcrafted Artisan Studio
+                    </div>
+                    <div class="footer-socials" style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 25px;">
+                        <a href="#" class="social-icon icon-instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                            </svg></a>
+                        <a href="#" class="social-icon icon-facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                            </svg></a>
+                        <a href="#" class="social-icon icon-twitter" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2a10 10 0 0 0-3.6 19.3c-.1-.8-.2-2 .04-2.9.2-.8 1.4-5.9 1.4-5.9s-.4-.7-.4-1.8c0-1.7 1-3 2.2-3 1.1 0 1.6.8 1.6 1.8 0 1.1-.7 2.7-1.1 4.2-.3 1.3.6 2.3 1.9 2.3 2.3 0 4.1-2.4 4.1-5.9 0-3.1-2.2-5.3-5.4-5.3-3.7 0-5.8 2.8-5.8 5.6 0 1.1.4 2.3 1 3 .1.1.1.2.1.4-.1.4-.3 1.3-.4 1.5-.1.2-.2.3-.4.2-1.7-.8-2.8-3.3-2.8-5.3 0-4.3 3.1-8.3 9.1-8.3 4.8 0 8.5 3.4 8.5 8 0 4.8-3 8.6-7.2 8.6-1.4 0-2.8-.7-3.2-1.6l-.9 3.4c-.3 1.2-1.1 2.7-1.7 3.6A10 10 0 1 0 12 2z"/>
+                            </svg></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Explore</h3>
+                    <a href="index.html" class="footer-link">Home</a>
+                    <a href="index.html#shop" class="footer-link">Collections</a>
+                    <a href="index.html#gallery" class="footer-link">Gallery</a>
+                    <a href="index.html#how-it-works" class="footer-link">How It Works</a>
+                    <a href="services.html" class="footer-link">Products Catalog</a>
+                    <a href="contact.html" class="footer-link">Get in Touch</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Collections</h3>
+                    <a href="services.html" class="footer-link">Gift Hampers</a>
+                    <a href="services.html" class="footer-link">Wedding Trousseau</a>
+                    <a href="services.html" class="footer-link">Botanical Soy Candles</a>
+                    <a href="services.html" class="footer-link">Monogrammed Boxes</a>
+                    <a href="services.html" class="footer-link">Gourmet Treats</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Concierge</h3>
+                    <p class="footer-link" style="display: flex; gap: 10px; align-items: center; cursor: default;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg> 45 Rosewood Atelier, NY
+                    </p>
+                    <p class="footer-link" style="display: flex; gap: 10px; align-items: center; cursor: default;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                        </svg> +1 (555) 839-GIFT
+                    </p>
+                    <p class="footer-link" style="display: flex; gap: 10px; align-items: center; cursor: default;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="20" height="16" x="2" y="4" rx="2" />
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                        </svg> concierge@cherishfavors.com
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Cherish & Co. Handcrafted Wedding Favors & Custom Gifts. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <button class="back-to-top" aria-label="Back to Top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 24px; height: 24px;">
+            <path d="m18 15-6-6-6 6" />
+        </svg></button>
+</body>
+
+</html>

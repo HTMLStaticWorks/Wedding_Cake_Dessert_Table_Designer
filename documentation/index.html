@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation | Cherish & Co. Wedding Favors</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --color-primary: #FF5D8F;
+            --color-secondary: #2C3333;
+            --color-accent: #D4AF37;
+            --bg-dark: #0A0A0A;
+            --bg-card: #141414;
+            --bg-sidebar: #0F0F0F;
+            --text-main: #FDF2F5;
+            --text-muted: #CBB4B9;
+            --border: #2A1A1E;
+            --sidebar-width: 280px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --radius: 12px;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+        }
+
+        .doc-sidebar {
+            width: var(--sidebar-width);
+            height: 100vh;
+            background: var(--bg-sidebar);
+            border-right: 1px solid var(--border);
+            position: fixed;
+            left: 0;
+            top: 0;
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+        }
+
+        .doc-content {
+            flex: 1;
+            margin-left: var(--sidebar-width);
+            padding: 2rem 4rem;
+            max-width: 1200px;
+        }
+        
+        .sidebar-header {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .sidebar-header .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--color-primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .doc-nav {
+            list-style: none;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .doc-nav li {
+            margin-bottom: 0.5rem;
+        }
+
+        .doc-nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            display: block;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .doc-nav a i {
+            width: 20px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .doc-nav a:hover, .doc-nav a.active {
+            background: rgba(255, 93, 143, 0.1);
+            color: var(--color-primary);
+        }
+
+        .doc-nav a.active {
+            font-weight: 600;
+            border-left: 3px solid var(--color-primary);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: var(--sidebar-width);
+            width: calc(100% - var(--sidebar-width));
+            height: 4px;
+            background: transparent;
+            z-index: 1100;
+        }
+
+        #progress-bar {
+            height: 100%;
+            background: linear-gradient(to right, var(--color-primary), var(--color-accent));
+            width: 0%;
+            transition: width 0.1s;
+        }
+
+        section {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        .section-header {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 2rem;
+            border: 1px solid var(--border);
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-primary);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--color-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 { margin-bottom: 1rem; color: var(--text-main); }
+        p { margin-bottom: 1rem; color: var(--text-muted); }
+        ul, ol { margin-left: 1.5rem; margin-bottom: 1.5rem; color: var(--text-muted); }
+        li { margin-bottom: 0.5rem; }
+
+        .code-block {
+            background: #000;
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            color: #4AF626;
+            margin: 1rem 0;
+            position: relative;
+            overflow-x: auto;
+        }
+
+        .code-block::after {
+            content: 'CODE';
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            font-size: 0.7rem;
+            color: #555;
+            letter-spacing: 1px;
+        }
+
+        .doc-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+        }
+
+        .doc-table th, .doc-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .doc-table th {
+            color: var(--color-primary);
+            background: rgba(255, 93, 143, 0.05);
+        }
+
+        .btn-pdf {
+            background: var(--color-primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 2rem;
+            transition: var(--transition);
+            width: fit-content;
+        }
+
+        .btn-pdf:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 93, 143, 0.3);
+        }
+
+        @media (max-width: 1024px) {
+            .doc-content {
+                padding: 2rem 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .doc-sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding: 1rem;
+            }
+            .sidebar-header { margin-bottom: 1rem; }
+            .doc-nav {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+            .doc-nav a { padding: 0.5rem 0.8rem; font-size: 0.85rem; }
+            .doc-content {
+                margin-left: 0;
+                padding: 1.5rem;
+            }
+            .progress-container {
+                left: 0;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Scroll Progress Bar -->
+    <div class="progress-container">
+        <div id="progress-bar"></div>
+    </div>
+
+    <!-- Sticky Sidebar Navigation -->
+    <aside class="doc-sidebar">
+        <div class="sidebar-header">
+            <div class="logo-text">Cherish & Co.</div>
+            <small style="color: var(--text-muted); opacity: 0.7;">Wedding Favors & Custom Gifts v1.0</small>
+        </div>
+        
+        <ul class="doc-nav">
+            <li><a href="#introduction" class="active"><i class="fas fa-info-circle"></i> Introduction</a></li>
+            <li><a href="#installation"><i class="fas fa-download"></i> Installation Guide</a></li>
+            <li><a href="#customization"><i class="fas fa-paint-brush"></i> Customization</a></li>
+            <li><a href="#page-structure"><i class="fas fa-sitemap"></i> Page Structure</a></li>
+            <li><a href="#credits"><i class="fas fa-award"></i> Credits</a></li>
+            <li><a href="#support"><i class="fas fa-headset"></i> Support</a></li>
+        </ul>
+
+        <button class="btn-pdf" onclick="window.print()">
+            <i class="fas fa-file-pdf"></i> Download PDF
+        </button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="doc-content">
+        
+        <!-- INTRODUCTION SECTION -->
+        <section id="introduction">
+            <div class="section-header">
+                <h2>Welcome</h2>
+                <p>Complete guide to managing and customizing your Wedding Favor & Custom Gift Company website.</p>
+            </div>
+            <div class="card">
+                <p>Welcome to <strong>Cherish & Co.</strong>, a premium web template built for luxury wedding favors, personalized guest gifting, and bespoke monogram keepsakes. Built with clean HTML5, CSS3 variables, and vanilla JS for ultra-fast loading and full responsiveness.</p>
+            </div>
+        </section>
+
+        <!-- INSTALLATION GUIDE -->
+        <section id="installation">
+            <div class="section-header">
+                <h2>Installation Guide</h2>
+                <p>How to set up your website for local preview and live deployment.</p>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title"><i class="fas fa-laptop-code"></i> Local Setup</h3>
+                <p>Open the directory in any code editor (like VS Code) or double-click <code>index.html</code> to open directly in any modern browser.</p>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title"><i class="fas fa-folder-open"></i> Page Architecture</h3>
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>File</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>index.html</td><td>Main Home page featuring favor collections, client praise & process.</td></tr>
+                        <tr><td>home2.html</td><td>Luxury VIP Gifting Suite showcase.</td></tr>
+                        <tr><td>services.html</td><td>Products page organized by wedding theme & budget tier.</td></tr>
+                        <tr><td>workshops.html</td><td>Custom Branding page (monogram foiling, wax seals, ribbon dyeing).</td></tr>
+                        <tr><td>blog.html</td><td>Bulk Orders page (tiered pricing, lead times, planning guides).</td></tr>
+                        <tr><td>contact.html</td><td>Contact page with comprehensive favor enquiry form.</td></tr>
+                        <tr><td>login.html & register.html</td><td>Client & Planner portal authentication pages.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- CUSTOMIZATION GUIDE -->
+        <section id="customization">
+            <div class="section-header">
+                <h2>Customization</h2>
+                <p>Easily adapt colors, typography, and content.</p>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title"><i class="fas fa-palette"></i> Colors (CSS Variables in style.css)</h3>
+                <div class="code-block">
+:root {
+  --color-primary: #FF5D8F; /* Primary Rose Accent */
+  --color-secondary: #2C3333; /* Deep Charcoal */
+  --color-accent: #D4AF37;   /* Gold Highlights */
+}
+                </div>
+            </div>
+        </section>
+
+        <!-- SUPPORT SECTION -->
+        <section id="support">
+            <div class="section-header">
+                <h2>Support</h2>
+                <p>Have questions regarding your custom favor website?</p>
+            </div>
+            <div class="card">
+                <table class="doc-table">
+                    <tr>
+                        <td><strong>Contact:</strong></td>
+                        <td>concierge@cherishfavors.com</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hours:</strong></td>
+                        <td>Monday - Saturday: 9:00am - 6:00pm EST</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        window.onscroll = function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("progress-bar").style.width = scrolled + "%";
+        };
+    </script>
+</body>
+</html>
