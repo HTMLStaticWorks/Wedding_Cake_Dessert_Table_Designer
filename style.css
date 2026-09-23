@@ -1001,6 +1001,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   color: var(--text-secondary);
   width: fit-content;
   position: relative;
+  text-decoration: none;
 }
 
 .footer-link svg,
@@ -1009,6 +1010,41 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   height: 18px !important;
   min-width: 18px;
   color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+/* Contact List & Items for Orderly Alignment */
+.footer-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.footer-contact-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin-bottom: 0 !important;
+  width: 100% !important;
+  color: var(--text-secondary);
+  text-align: left;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+[dir="rtl"] .footer-contact-item {
+  text-align: right;
+}
+
+.footer-contact-item svg,
+.footer-contact-item i {
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  color: var(--color-primary);
+  flex-shrink: 0;
+  display: block;
 }
 
 .card svg,
@@ -1036,6 +1072,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   padding-left: 5px;
 }
 
+[dir="rtl"] .footer-link:hover {
+  padding-left: 0;
+  padding-right: 5px;
+}
+
 .footer-link:hover::after {
   width: 100%;
 }
@@ -1047,6 +1088,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .footer-column:hover h3 {
   color: var(--color-primary);
   transform: translateX(5px);
+}
+
+[dir="rtl"] .footer-column:hover h3 {
+  transform: translateX(-5px);
 }
 
 /* Social Icon Colors & Hover */
@@ -1150,11 +1195,17 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     grid-template-columns: repeat(2, 1fr);
     gap: 35px;
   }
+  .footer-column .footer-contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
   .nav-links {
     gap: 10px;
   }
   .nav-link {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
   }
 }
 
@@ -1250,6 +1301,33 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     margin-right: auto;
   }
 
+  .footer-column .footer-contact-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 auto;
+    width: fit-content;
+    max-width: 100%;
+    gap: 12px;
+  }
+
+  .footer-column .footer-contact-item {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 10px !important;
+    text-align: left !important;
+    width: fit-content !important;
+  }
+
+  [dir="rtl"] .footer-column .footer-contact-list {
+    align-items: flex-start;
+  }
+
+  [dir="rtl"] .footer-column .footer-contact-item {
+    text-align: right !important;
+  }
+
   .footer-socials {
     justify-content: center !important;
   }
@@ -1265,6 +1343,27 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
   .drawer {
     display: flex;
+  }
+
+  .auth-page {
+    padding: 70px 16px 30px !important;
+  }
+
+  .auth-toggles {
+    position: fixed !important;
+    top: 14px !important;
+    right: 14px !important;
+    z-index: 1000 !important;
+  }
+
+  [dir="rtl"] .auth-toggles {
+    right: auto !important;
+    left: 14px !important;
+  }
+
+  .auth-card {
+    margin-top: 10px !important;
+    padding: 32px 20px !important;
   }
 }
 
@@ -1324,6 +1423,33 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   .container {
     padding: 0 12px;
   }
+
+  .auth-page {
+    padding: 65px 10px 20px !important;
+  }
+
+  .auth-toggles {
+    position: fixed !important;
+    top: 10px !important;
+    right: 10px !important;
+    gap: 8px !important;
+  }
+
+  [dir="rtl"] .auth-toggles {
+    right: auto !important;
+    left: 10px !important;
+  }
+
+  .auth-card {
+    padding: 24px 14px !important;
+    margin-top: 8px !important;
+    border-radius: 10px !important;
+  }
+
+  .footer-column .footer-contact-item {
+    font-size: 0.84rem !important;
+    gap: 8px !important;
+  }
 }
 
 /* Global Animations */
@@ -1343,10 +1469,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .auth-page {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background: var(--bg-secondary);
-  padding: 20px;
+  padding: 60px 20px 30px;
+  position: relative;
   overflow-y: auto;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
@@ -1365,15 +1493,22 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   box-shadow: var(--shadow);
   position: relative;
   text-align: center;
+  border: 1px solid var(--border-color);
+  margin-top: 10px;
 }
 
 .auth-toggles {
-  position: absolute;
-  top: 20px;
-  right: 20px;
+  position: fixed;
+  top: 18px;
+  right: 18px;
   display: flex;
   gap: 10px;
-  z-index: 100;
+  z-index: 1000;
+}
+
+[dir="rtl"] .auth-toggles {
+  right: auto;
+  left: 18px;
 }
 
 .auth-form {
@@ -1403,30 +1538,67 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   background: var(--bg-secondary);
   color: var(--text-primary);
   font-family: inherit;
+  font-size: 0.95rem;
   transition: var(--transition);
+}
+
+.input-wrapper input.form-input {
+  padding-right: 48px;
+}
+
+[dir="rtl"] .input-wrapper input.form-input {
+  padding-right: 20px;
+  padding-left: 48px;
 }
 
 .form-input:focus {
   outline: none;
   border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(255, 93, 143, 0.15);
 }
 
 .input-wrapper {
   position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
 
 .password-toggle {
   position: absolute;
-  right: 15px;
+  right: 14px;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
   color: var(--text-secondary);
+  background: none;
+  border: none;
+  padding: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: var(--transition);
+  z-index: 5;
+}
+
+.password-toggle:hover {
+  color: var(--color-primary);
+  background: rgba(255, 93, 143, 0.08);
+}
+
+.password-toggle svg,
+.password-toggle i {
+  width: 20px !important;
+  height: 20px !important;
+  stroke: currentColor;
+  stroke-width: 2;
+  display: block;
 }
 
 [dir="rtl"] .password-toggle {
   right: auto;
-  left: 15px;
+  left: 14px;
 }
 
 .auth-options {

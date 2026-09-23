@@ -91,14 +91,19 @@ const init = () => {
   
   // Password Toggle logic
   document.querySelectorAll('.password-toggle').forEach(btn => {
-    btn.addEventListener('click', function() {
-      const input = this.parentElement.querySelector('input');
-      const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
-      input.setAttribute('type', type);
-      const eye = this.querySelector('[data-lucide=eye]');
-      const eyeOff = this.querySelector('[data-lucide=eye-off]');
-      if (eye) eye.style.display = type === 'text' ? 'none' : 'block';
-      if (eyeOff) eyeOff.style.display = type === 'text' ? 'block' : 'none';
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      const wrapper = this.closest('.input-wrapper') || this.parentElement;
+      const input = wrapper.querySelector('input');
+      if (!input) return;
+      const isPassword = input.getAttribute('type') === 'password';
+      input.setAttribute('type', isPassword ? 'text' : 'password');
+      
+      const eye = this.querySelector('.eye-icon, [data-lucide="eye"], .lucide-eye');
+      const eyeOff = this.querySelector('.eye-off-icon, [data-lucide="eye-off"], .lucide-eye-off');
+      
+      if (eye) eye.style.setProperty('display', isPassword ? 'none' : 'block', 'important');
+      if (eyeOff) eyeOff.style.setProperty('display', isPassword ? 'block' : 'none', 'important');
     });
   });
 
