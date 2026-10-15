@@ -39,16 +39,34 @@ const init = () => {
   const menuBtn = document.querySelector('.menu-btn');
   const drawer = document.querySelector('.drawer');
   const overlay = document.querySelector('.overlay');
+  const closeBtn = document.querySelector('.drawer-close-btn');
+
+  const closeDrawer = () => {
+    if (drawer) drawer.classList.remove('open');
+    if (overlay) overlay.classList.remove('visible');
+    document.body.style.overflow = '';
+  };
+
+  const openDrawer = () => {
+    if (drawer) drawer.classList.add('open');
+    if (overlay) overlay.classList.add('visible');
+    document.body.style.overflow = 'hidden';
+  };
   
   if (menuBtn && drawer && overlay) {
-    menuBtn.addEventListener('click', () => {
-      drawer.classList.add('open');
-      overlay.classList.add('visible');
-    });
+    menuBtn.addEventListener('click', openDrawer);
+    overlay.addEventListener('click', closeDrawer);
+    if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
     
-    overlay.addEventListener('click', () => {
-      drawer.classList.remove('open');
-      overlay.classList.remove('visible');
+    // Close drawer when any nav link or CTA is clicked
+    drawer.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeDrawer);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && drawer.classList.contains('open')) {
+        closeDrawer();
+      }
     });
   }
   
