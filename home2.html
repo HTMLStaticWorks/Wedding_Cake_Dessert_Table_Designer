@@ -57,6 +57,103 @@
             color: var(--text-primary);
             font-weight: 600;
         }
+
+        /* FAQ Accordion Styles */
+        .faq-item {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        .faq-item:hover {
+            border-color: var(--color-primary);
+        }
+        .faq-question {
+            padding: 22px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.08rem;
+            color: var(--text-primary);
+            user-select: none;
+        }
+        .faq-question i, .faq-question svg {
+            color: var(--color-primary);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            margin-left: 15px;
+        }
+        .faq-item.active .faq-question i,
+        .faq-item.active .faq-question svg {
+            transform: rotate(180deg);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.35s ease;
+            padding: 0 28px;
+            color: var(--text-secondary);
+            font-size: 0.98rem;
+            line-height: 1.7;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 0 28px 24px;
+        }
+
+        /* Engineering Blueprint Card */
+        .blueprint-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 35px 28px;
+            position: relative;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+        .blueprint-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--color-primary);
+            box-shadow: var(--shadow-lg);
+        }
+        .blueprint-num {
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--border-color);
+            line-height: 1;
+            opacity: 0.6;
+        }
+
+        /* Timeline Step Cards */
+        .timeline-step {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+            position: relative;
+        }
+        .timeline-number-bubble {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--color-primary);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(201, 151, 56, 0.35);
+        }
     </style>
 </head>
 
@@ -308,8 +405,77 @@
         </div>
     </section>
 
-    <!-- White Glove Dedication -->
+    <!-- SECTION: Haute Confectionery Engineering & Anatomy -->
     <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <header class="section-header" data-animate>
+                <span class="section-subtitle">Structural Precision</span>
+                <h2 class="section-title">The Anatomy of a 5+ Tier Edible Monument</h2>
+                <p style="max-width: 680px; margin: 15px auto 0; color: var(--text-secondary);">Building a cake that weighs in excess of 100 pounds requires aerospace-level culinary precision, internal titanium supports, and climate-controlled transport.</p>
+            </header>
+
+            <div class="grid" style="grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 50px;" data-animate>
+                <div class="blueprint-card">
+                    <span class="blueprint-num">01</span>
+                    <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(201, 151, 56, 0.12); display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                        <i data-lucide="shield" style="color: var(--color-primary); width: 24px; height: 24px;"></i>
+                    </div>
+                    <h3 style="font-size: 1.22rem; margin-bottom: 12px;">Internal Titanium Core</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">Food-grade titanium and concealed central dowel system designed to safely support up to 140 lbs without compromising tender sponge crumb.</p>
+                </div>
+
+                <div class="blueprint-card">
+                    <span class="blueprint-num">02</span>
+                    <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(201, 151, 56, 0.12); display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                        <i data-lucide="thermometer-snowflake" style="color: var(--color-primary); width: 24px; height: 24px;"></i>
+                    </div>
+                    <h3 style="font-size: 1.22rem; margin-bottom: 12px;">Refrigerated Transit Vault</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">Dual-zone mobile refrigeration keeping the cake stabilized at exactly 14°C (57°F) during transport to country estates and castles.</p>
+                </div>
+
+                <div class="blueprint-card">
+                    <span class="blueprint-num">03</span>
+                    <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(201, 151, 56, 0.12); display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                        <i data-lucide="flower2" style="color: var(--color-primary); width: 24px; height: 24px;"></i>
+                    </div>
+                    <h3 style="font-size: 1.22rem; margin-bottom: 12px;">Live Sugar Petal Pinning</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">Fragile botanical sugar peonies and roses are individually secured on-site by our lead pastry sculptor hours prior to guest reception.</p>
+                </div>
+
+                <div class="blueprint-card">
+                    <span class="blueprint-num">04</span>
+                    <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(201, 151, 56, 0.12); display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                        <i data-lucide="scale" style="color: var(--color-primary); width: 24px; height: 24px;"></i>
+                    </div>
+                    <h3 style="font-size: 1.22rem; margin-bottom: 12px;">Digital Spirit Leveling</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">Historic venues often feature uneven antique parquet floors. We calibrate each riser using digital millimeter leveling pedestals.</p>
+                </div>
+            </div>
+
+            <!-- Stats Ribbon -->
+            <div class="stats-ribbon" style="background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 35px 25px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center;" data-animate>
+                <div>
+                    <span style="font-family: var(--font-heading); font-size: 2.4rem; font-weight: 700; color: var(--color-primary); display: block;">5 to 7+</span>
+                    <span style="color: var(--text-secondary); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Grand Tiers</span>
+                </div>
+                <div>
+                    <span style="font-family: var(--font-heading); font-size: 2.4rem; font-weight: 700; color: var(--color-primary); display: block;">120+</span>
+                    <span style="color: var(--text-secondary); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Hours Sugar Sculpting</span>
+                </div>
+                <div>
+                    <span style="font-family: var(--font-heading); font-size: 2.4rem; font-weight: 700; color: var(--color-primary); display: block;">100%</span>
+                    <span style="color: var(--text-secondary); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Edible Masterpiece</span>
+                </div>
+                <div>
+                    <span style="font-family: var(--font-heading); font-size: 2.4rem; font-weight: 700; color: var(--color-primary); display: block;">1 Only</span>
+                    <span style="color: var(--text-secondary); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Per Weekend Worldwide</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- White Glove Dedication -->
+    <section class="section">
         <div class="container">
             <div class="split-grid" style="align-items: center;" data-animate>
                 <div>
@@ -343,7 +509,266 @@
         </div>
     </section>
 
-    <!-- Creative Footer -->
+    <!-- SECTION: 4-Stage Architectural Commissioning Process -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <header class="section-header" data-animate>
+                <span class="section-subtitle">The Commissioning Journey</span>
+                <h2 class="section-title">From Private Tasting to Grand Ballroom Reveal</h2>
+                <p style="max-width: 680px; margin: 15px auto 0; color: var(--text-secondary);">A seamless concierge experience tailored to high-society timelines, overseas planners, and bespoke venue aesthetics.</p>
+            </header>
+
+            <div class="grid" style="grid-template-columns: repeat(4, 1fr); gap: 25px;" data-animate>
+                <div class="card" style="padding: 30px 24px; display: flex; flex-direction: column;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div class="timeline-number-bubble">1</div>
+                        <i data-lucide="compass" style="color: var(--color-primary); width: 26px; height: 26px;"></i>
+                    </div>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 12px;">Venue Survey & CAD Scaling</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6;">We analyze ballroom ceiling heights, spotlighting angles, guest sightlines, and temperature conditions to engineer proportional perfection.</p>
+                </div>
+
+                <div class="card" style="padding: 30px 24px; display: flex; flex-direction: column;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div class="timeline-number-bubble">2</div>
+                        <i data-lucide="coffee" style="color: var(--color-primary); width: 26px; height: 26px;"></i>
+                    </div>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 12px;">SoHo Atelier Private Flight</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6;">Experience an intimate champagne tasting of 8 signature cake sponge and filling pairings, custom sugar petal color-matching with your floral palette.</p>
+                </div>
+
+                <div class="card" style="padding: 30px 24px; display: flex; flex-direction: column;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div class="timeline-number-bubble">3</div>
+                        <i data-lucide="sparkles" style="color: var(--color-primary); width: 26px; height: 26px;"></i>
+                    </div>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 12px;">Bespoke Atelier Handcrafting</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6;">Over 100 hours dedicated to sculpting custom sugar blossoms, 24k gold leaf guilding, and baking single-batch organic cake tiers in our private kitchen.</p>
+                </div>
+
+                <div class="card" style="padding: 30px 24px; display: flex; flex-direction: column;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div class="timeline-number-bubble">4</div>
+                        <i data-lucide="truck" style="color: var(--color-primary); width: 26px; height: 26px;"></i>
+                    </div>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 12px;">White-Glove On-Site Reveal</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6;">Arriving 4 hours before guest doors open in temperature-controlled transport, our master pastry team stacks, styles, and spotlights your installation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: Signature Grand Banquet Flavor Suites -->
+    <section class="section">
+        <div class="container">
+            <header class="section-header" data-animate>
+                <span class="section-subtitle">Gastronomic Excellence</span>
+                <h2 class="section-title">Grand Banquet Tasting Suites</h2>
+                <p style="max-width: 660px; margin: 15px auto 0; color: var(--text-secondary);">Every tier of a monument cake can be curated with contrasting flavors, complemented by harmonized tablescape petit fours.</p>
+            </header>
+
+            <div class="grid" style="grid-template-columns: repeat(4, 1fr); gap: 25px;" data-animate>
+                <!-- Flavor 1 -->
+                <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+                    <div style="height: 180px; overflow: hidden;">
+                        <img src="image/sugar_flower_cake.jpg" alt="Champagne & Wild Strawberry" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="padding: 24px; flex-grow: 1; display: flex; flex-direction: column;">
+                        <span style="color: var(--color-primary); font-size: 0.8rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;">SIGNATURE PALACE</span>
+                        <h4 style="margin: 8px 0; font-size: 1.18rem;">Vintage Champagne & Wild Strawberry</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.88rem; line-height: 1.6; margin-bottom: 15px;">Madagascar vanilla genoise soaked in vintage Dom Pérignon syrup, layered with Mara des Bois compote and Swiss meringue.</p>
+                        <span style="margin-top: auto; font-size: 0.82rem; font-weight: 600; color: var(--color-primary);"><i data-lucide="wine" style="width: 14px; height: 14px; display: inline-block; vertical-align: middle;"></i> Pairing: Blanc de Blancs</span>
+                    </div>
+                </div>
+
+                <!-- Flavor 2 -->
+                <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+                    <div style="height: 180px; overflow: hidden;">
+                        <img src="image/dessert_table_banquet.jpg" alt="Piedmont Hazelnut & Valrhona Gianduja" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="padding: 24px; flex-grow: 1; display: flex; flex-direction: column;">
+                        <span style="color: var(--color-primary); font-size: 0.8rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;">OPULENT NOIR</span>
+                        <h4 style="margin: 8px 0; font-size: 1.18rem;">Piedmont Hazelnut & Valrhona 70%</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.88rem; line-height: 1.6; margin-bottom: 15px;">Roasted Italian hazelnut dacquoise, Valrhona dark chocolate ganache, fleur de sel praline crunch, and whipped Gianduja.</p>
+                        <span style="margin-top: auto; font-size: 0.82rem; font-weight: 600; color: var(--color-primary);"><i data-lucide="wine" style="width: 14px; height: 14px; display: inline-block; vertical-align: middle;"></i> Pairing: Vintage Tawny Port</span>
+                    </div>
+                </div>
+
+                <!-- Flavor 3 -->
+                <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+                    <div style="height: 180px; overflow: hidden;">
+                        <img src="image/choux_tartlets_display.jpg" alt="Tahitian Vanilla Bean & Salted Caramel" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="padding: 24px; flex-grow: 1; display: flex; flex-direction: column;">
+                        <span style="color: var(--color-primary); font-size: 0.8rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;">FRENCH CLASSIC</span>
+                        <h4 style="margin: 8px 0; font-size: 1.18rem;">Tahitian Vanilla & Fleur de Sel</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.88rem; line-height: 1.6; margin-bottom: 15px;">Golden sponge infused with whole Tahitian bean caviar, layered with soft butter caramel and mascarpone velvet frosting.</p>
+                        <span style="margin-top: auto; font-size: 0.82rem; font-weight: 600; color: var(--color-primary);"><i data-lucide="wine" style="width: 14px; height: 14px; display: inline-block; vertical-align: middle;"></i> Pairing: Sauternes Premier Cru</span>
+                    </div>
+                </div>
+
+                <!-- Flavor 4 -->
+                <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+                    <div style="height: 180px; overflow: hidden;">
+                        <img src="image/botanical_naked_cake.jpg" alt="Sicilian Pistachio & White Peach" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="padding: 24px; flex-grow: 1; display: flex; flex-direction: column;">
+                        <span style="color: var(--color-primary); font-size: 0.8rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;">MEDITERRANEAN</span>
+                        <h4 style="margin: 8px 0; font-size: 1.18rem;">Bronte Pistachio & Bellini Peach</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.88rem; line-height: 1.6; margin-bottom: 15px;">Pure Sicilian pistachio flour sponge, poached Italian white peach gelée, crushed candied pistachios, and floral honey buttercream.</p>
+                        <span style="margin-top: auto; font-size: 0.82rem; font-weight: 600; color: var(--color-primary);"><i data-lucide="wine" style="width: 14px; height: 14px; display: inline-block; vertical-align: middle;"></i> Pairing: Moscato d'Asti</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: Estate Testimonials / Planner Acclaim -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <header class="section-header" data-animate>
+                <span class="section-subtitle">Estate Acclaim</span>
+                <h2 class="section-title">Praised by Luxury Wedding Planners</h2>
+                <p style="max-width: 650px; margin: 15px auto 0; color: var(--text-secondary);">Featured across high-profile historic ballrooms, private island weddings, and French châteaux.</p>
+            </header>
+
+            <div class="grid" style="grid-template-columns: repeat(3, 1fr); gap: 30px;" data-animate>
+                <div class="card" style="padding: 35px 28px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div style="display: flex; gap: 4px; color: var(--color-primary); margin-bottom: 18px;">
+                            <i data-lucide="star" style="width: 18px; height: 18px; fill: var(--color-primary);"></i>
+                            <i data-lucide="star" style="width: 18px; height: 18px; fill: var(--color-primary);"></i>
+                            <i data-lucide="star" style="width: 18px; height: 18px; fill: var(--color-primary);"></i>
+                            <i data-lucide="star" style="width: 18px; height: 18px; fill: var(--color-primary);"></i>
+                            <i data-lucide="star" style="width: 18px; height: 18px; fill: var(--color-primary);"></i>
+                        </div>
+                        <p style="font-style: italic; color: var(--text-primary); font-size: 1.02rem; line-height: 1.7; margin-bottom: 22px;">
+                            "ROSE delivered a 6-tier monumental cake and 18-foot dessert banquet for our Lake Como celebration. The structural balance, sugar flowers, and flavor were pure perfection."
+                        </p>
+                    </div>
+                    <div style="border-top: 1px solid var(--border-color); padding-top: 18px;">
+                        <strong style="display: block; font-size: 1.05rem;">Genevieve & Marcus</strong>
+                        <span style="color: var(--color-primary); font-size: 0.88rem; font-weight: 600;">Villa d'Este, Lake Como</span>
+                    </div>
+                </div>
+
+                <div class="card" style="padding: 35px 28px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div style="display: flex; gap: 4px; color: var(--color-primary); margin-bottom: 18px;">
+                            <i data-lucide="star" style="width: 18px; height: 18px; fill: var(--color-primary);"></i>
+                            <i data-lucide="star" style="width: 18px; height: 18px; fill: var(--color-primary);"></i>
+                            <i data-lucide="star" style="width: 18px; height: 18px; fill: var(--color-primary);"></i>
+                            <i data-lucide="star" style="width: 18px; height: 18px; fill: var(--color-primary);"></i>
+                            <i data-lucide="star" style="width: 18px; height: 18px; fill: var(--color-primary);"></i>
+                        </div>
+                        <p style="font-style: italic; color: var(--text-primary); font-size: 1.02rem; line-height: 1.7; margin-bottom: 22px;">
+                            "In 15 years of luxury wedding planning at The Plaza, I have rarely seen a dessert installation evoke such gasps from guests. Truly haute couture."
+                        </p>
+                    </div>
+                    <div style="border-top: 1px solid var(--border-color); padding-top: 18px;">
+                        <strong style="display: block; font-size: 1.05rem;">Camilla Vance</strong>
+                        <span style="color: var(--color-primary); font-size: 0.88rem; font-weight: 600;">Director, Vance Luxury Events NYC</span>
+                    </div>
+                </div>
+
+                <div class="card" style="padding: 35px 28px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div style="display: flex; gap: 4px; color: var(--color-primary); margin-bottom: 18px;">
+                            <i data-lucide="star" style="width: 18px; height: 18px; fill: var(--color-primary);"></i>
+                            <i data-lucide="star" style="width: 18px; height: 18px; fill: var(--color-primary);"></i>
+                            <i data-lucide="star" style="width: 18px; height: 18px; fill: var(--color-primary);"></i>
+                            <i data-lucide="star" style="width: 18px; height: 18px; fill: var(--color-primary);"></i>
+                            <i data-lucide="star" style="width: 18px; height: 18px; fill: var(--color-primary);"></i>
+                        </div>
+                        <p style="font-style: italic; color: var(--text-primary); font-size: 1.02rem; line-height: 1.7; margin-bottom: 22px;">
+                            "The level of engineering and botanical sugar artistry is unmatched. The cake was not just dessert—it was the unquestioned centerpiece of our grand ballroom."
+                        </p>
+                    </div>
+                    <div style="border-top: 1px solid var(--border-color); padding-top: 18px;">
+                        <strong style="display: block; font-size: 1.05rem;">Alexander & Sophia</strong>
+                        <span style="color: var(--color-primary); font-size: 0.88rem; font-weight: 600;">Oheka Castle Estate Celebration</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: Grand Installations FAQ Accordion -->
+    <section class="section">
+        <div class="container" style="max-width: 920px;">
+            <header class="section-header" data-animate>
+                <span class="section-subtitle">Concierge Clarifications</span>
+                <h2 class="section-title">Grand Installation FAQs</h2>
+                <p style="color: var(--text-secondary);">Everything you need to know about commissioning an architectural cake or full-scale dessert banquet.</p>
+            </header>
+
+            <div data-animate>
+                <div class="faq-item active">
+                    <div class="faq-question">
+                        <span>How far in advance should we reserve our Grand Installation?</span>
+                        <i data-lucide="chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Because we strictly limit our calendar to only one Grand Installation per weekend worldwide to ensure master pastry chef oversight, we recommend booking 6 to 12 months in advance. Peak spring and autumn wedding dates often fill up a year ahead.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do you manage warm weather and outdoor estate receptions?</span>
+                        <i data-lucide="chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our monumental cakes are built using proprietary structural food-grade titanium doweling and temperature-stabilized Swiss meringue frostings. We transport cakes in dual-zone refrigerated vans and coordinate with venue coordinators for optimal air-conditioned staging until the ceremonial cake cutting.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you coordinate directly with our floral designer and event planner?</span>
+                        <i data-lucide="chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes. Our atelier coordinates with your floral team, lighting technicians, and table rental companies. We match sugar blossom color pantones with live centerpieces, ensure structural load capacity for tables, and calibrate spotlighting angles for maximum visual impact.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can different tiers feature distinct flavor combinations and dietary options?</span>
+                        <i data-lucide="chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely. In a 5 to 7-tier installation, each tier can highlight a distinct flavor suite. We also provide companion gluten-free or dairy-conscious tiers and curated vegan French macaron towers for guests with special dietary preferences.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: VIP Private Consultation & Date Availability Banner -->
+    <section class="section" style="padding: 0 20px 80px;">
+        <div class="container">
+            <div style="background: linear-gradient(135deg, #1C1816 0%, #2A2124 100%); color: #fff; border-radius: 20px; padding: 70px 45px; text-align: center; position: relative; overflow: hidden; box-shadow: var(--shadow-lg);" data-animate>
+                <div style="position: absolute; top: -50px; right: -50px; width: 220px; height: 220px; border-radius: 50%; background: radial-gradient(circle, rgba(201, 151, 56, 0.25) 0%, transparent 70%); pointer-events: none;"></div>
+                <span style="color: var(--color-accent); font-weight: 700; letter-spacing: 3px; font-size: 0.88rem; text-transform: uppercase; display: block; margin-bottom: 12px;">Limited Annual Atelier Commissions</span>
+                <h2 style="font-size: clamp(2rem, 4.5vw, 3.2rem); color: #fff; margin-bottom: 20px; line-height: 1.2;">Reserve Your Grand Installation For 2026 / 2027</h2>
+                <p style="color: rgba(255, 255, 255, 0.85); max-width: 650px; margin: 0 auto 35px; font-size: 1.1rem; line-height: 1.7;">
+                    Connect with our lead concierge to verify date availability and schedule your private in-studio tasting flight at our SoHo design studio.
+                </p>
+                <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                    <a href="contact.html" class="btn btn-primary" style="padding: 16px 36px; font-size: 1rem;">
+                        <i data-lucide="calendar" style="width: 18px; height: 18px; margin-right: 8px;"></i> Request Atelier Date Consultation
+                    </a>
+                    <a href="tel:+15552253783" class="btn btn-secondary" style="padding: 16px 32px; font-size: 1rem; color: #fff; border-color: rgba(255,255,255,0.4);">
+                        <i data-lucide="phone" style="width: 18px; height: 18px; margin-right: 8px;"></i> Call Concierge Desk
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Creative Footer (Synchronized with index.html) -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -362,48 +787,95 @@
                         </svg>
                         <span>ROSE</span>
                     </a>
-                    <p class="footer-tagline">Architectural wedding cakes and royal dessert installations for unforgettable luxury celebrations.</p>
+                    <p class="footer-tagline">Crafting edible architectural masterpieces, sugar flora, and luxury dessert tables for bespoke weddings since 2018.</p>
+                    <div style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; background: var(--bg-primary); border-radius: 20px; font-size: 0.85rem; font-weight: 600; color: var(--color-primary); margin-top: 15px; border: 1px solid var(--border-color);">
+                        <i data-lucide="award" style="width: 16px; height: 16px;"></i> Award-Winning Cake Atelier
+                    </div>
+                    <div class="footer-socials" style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 25px;">
+                        <a href="#" class="social-icon icon-instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                            </svg></a>
+                        <a href="#" class="social-icon icon-facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                            </svg></a>
+                        <a href="#" class="social-icon icon-twitter" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2a10 10 0 0 0-3.6 19.3c-.1-.8-.2-2 .04-2.9.2-.8 1.4-5.9 1.4-5.9s-.4-.7-.4-1.8c0-1.7 1-3 2.2-3 1.1 0 1.6.8 1.6 1.8 0 1.1-.7 2.7-1.1 4.2-.3 1.3.6 2.3 1.9 2.3 2.3 0 4.1-2.4 4.1-5.9 0-3.1-2.2-5.3-5.4-5.3-3.7 0-5.8 2.8-5.8 5.6 0 1.1.4 2.3 1 3 .1.1.1.2.1.4-.1.4-.3 1.3-.4 1.5-.1.2-.2.3-.4.2-1.7-.8-2.8-3.3-2.8-5.3 0-4.3 3.1-8.3 9.1-8.3 4.8 0 8.5 3.4 8.5 8 0 4.8-3 8.6-7.2 8.6-1.4 0-2.8-.7-3.2-1.6l-.9 3.4c-.3 1.2-1.1 2.7-1.7 3.6A10 10 0 1 0 12 2z"/>
+                            </svg></a>
+                    </div>
                 </div>
                 <div class="footer-column">
-                    <h3>Explore</h3>
+                    <h3>Explore Atelier</h3>
                     <a href="index.html" class="footer-link">Home</a>
+                    <a href="index.html#collections" class="footer-link">Collections</a>
+                    <a href="index.html#gallery" class="footer-link">Masterpiece Gallery</a>
                     <a href="home2.html" class="footer-link">Grand Installations</a>
-                    <a href="services.html" class="footer-link">Designs & Menus</a>
+                    <a href="services.html" class="footer-link">Designs & Flavor Menu</a>
                     <a href="workshops.html" class="footer-link">Tasting Flights</a>
                     <a href="contact.html" class="footer-link">Request a Custom Cake</a>
                 </div>
                 <div class="footer-column">
-                    <h3>Specialties</h3>
-                    <a href="services.html" class="footer-link">5+ Tiered Palace Cakes</a>
-                    <a href="services.html" class="footer-link">Estate Dessert Banquets</a>
-                    <a href="services.html" class="footer-link">Hand-Sculpted Sugar Flora</a>
-                    <a href="services.html" class="footer-link">24k Gold Leaf Monograms</a>
+                    <h3>Collections</h3>
+                    <a href="services.html" class="footer-link">Sugar Flower Cakes</a>
+                    <a href="services.html" class="footer-link">Luxury Dessert Tables</a>
+                    <a href="services.html" class="footer-link">French Macaron Pyramids</a>
+                    <a href="services.html" class="footer-link">Modern Sculptural Cakes</a>
+                    <a href="services.html" class="footer-link">Artisanal Choux & Tartlets</a>
                 </div>
                 <div class="footer-column">
-                    <h3>Atelier Concierge</h3>
+                    <h3>Cake Concierge</h3>
                     <div class="footer-contact-list">
                         <div class="footer-contact-item">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
                             <span>84 Mercer Street, SoHo, NY 10012</span>
                         </div>
                         <a href="tel:+15552253783" class="footer-contact-item">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                            </svg>
                             <span>+1 (555) ROSE-CAKE</span>
                         </a>
                         <a href="mailto:concierge@rosecakes.com" class="footer-contact-item">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="20" height="16" x="2" y="4" rx="2" />
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                            </svg>
                             <span>concierge@rosecakes.com</span>
                         </a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 ROSE. All Rights Reserved.</p>
+                <p>&copy; 2026 ROSE. Haute Couture Wedding Cakes & Luxury Dessert Table Designer. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Interactive FAQ Accordion functionality
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => {
+                const item = q.parentElement;
+                const wasActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
+                if (!wasActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
     <button class="back-to-top" aria-label="Back to Top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg></button>
 </body>
 </html>
