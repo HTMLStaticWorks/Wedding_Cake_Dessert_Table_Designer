@@ -402,6 +402,20 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   width: 100%;
 }
 
+.grid-3-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  width: 100%;
+}
+
+.grid-4-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  width: 100%;
+}
+
 .card {
   background: var(--bg-secondary);
   padding: var(--spacing-lg);
@@ -1351,15 +1365,19 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   .nav-login-btn {
     display: none !important;
   }
+}
 
+@media (min-width: 681px) and (max-width: 1024px) {
   .grid[style*="repeat(4, 1fr)"],
   .grid[style*="repeat(3, 1fr)"],
+  .grid-3-cards,
+  .grid-4-cards,
   .stats-ribbon {
     grid-template-columns: repeat(2, 1fr) !important;
   }
 }
 
-@media (max-width: 768px) {
+@media (min-width: 681px) and (max-width: 768px) {
   .grid {
     grid-template-columns: repeat(2, 1fr) !important;
   }
@@ -1380,7 +1398,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     margin-right: auto;
     width: 100%;
   }
+}
 
+@media (max-width: 768px) {
   .nav-links,
   .nav-actions .theme-toggle,
   .nav-actions .rtl-toggle,
@@ -1503,6 +1523,41 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
 }
 
+/* Mobile Devices (Under 680px down to 360px & smaller) */
+@media (max-width: 680px) {
+  .grid,
+  .gallery-grid,
+  .process-steps,
+  #exclusive-collections-grid,
+  [style*="grid-template-columns"],
+  .grid[style*="grid-template-columns"],
+  .grid[style*="repeat(4, 1fr)"],
+  .grid[style*="repeat(3, 1fr)"],
+  .grid[style*="repeat(2, 1fr)"],
+  .grid-3-cards,
+  .grid-4-cards {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .grid .card:last-child:nth-child(odd),
+  #exclusive-collections-grid .card:last-child:nth-child(odd),
+  .card:last-child:nth-child(odd) {
+    grid-column: span 1 !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+  }
+
+  .stats-ribbon,
+  .stats-ribbon[style*="grid-template-columns"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+    padding: 24px 15px !important;
+  }
+}
+
 @media (max-width: 360px) {
   .drawer {
     width: 285px;
@@ -1551,21 +1606,88 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
 
   .grid,
+  .gallery-grid,
+  .process-steps,
   #exclusive-collections-grid,
-  [style*="grid-template-columns"] {
+  [style*="grid-template-columns"],
+  .grid[style*="grid-template-columns"],
+  .grid[style*="repeat(4, 1fr)"],
+  .grid[style*="repeat(3, 1fr)"],
+  .grid[style*="repeat(2, 1fr)"],
+  .grid-3-cards,
+  .grid-4-cards {
     grid-template-columns: 1fr !important;
+    gap: 18px !important;
   }
 
-  .grid .card:last-child:nth-child(odd) {
+  .grid .card:last-child:nth-child(odd),
+  #exclusive-collections-grid .card:last-child:nth-child(odd),
+  .card:last-child:nth-child(odd) {
     grid-column: span 1 !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+  }
+
+  .stats-ribbon,
+  .stats-ribbon[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    padding: 20px 12px !important;
   }
 
   .section-title {
-    font-size: 1.75rem;
+    font-size: 1.65rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .section-subtitle {
+    font-size: 0.78rem !important;
+    letter-spacing: 1.5px !important;
   }
 
   .card {
-    padding: var(--spacing-md);
+    padding: 20px 16px !important;
+  }
+
+  .card[style*="padding: 0"],
+  .card[style*="padding:0"] {
+    padding: 0 !important;
+  }
+
+  .card h3,
+  .card h4 {
+    font-size: 1.12rem !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .card p {
+    font-size: 0.88rem !important;
+    line-height: 1.55 !important;
+  }
+
+  .card .btn {
+    font-size: 0.86rem !important;
+    padding: 10px 14px !important;
+    min-height: 44px !important;
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .img-container {
+    height: 200px !important;
+  }
+
+  .blueprint-card {
+    padding: 24px 16px !important;
+  }
+
+  .blueprint-num {
+    font-size: 2rem !important;
+    top: 15px !important;
+    right: 15px !important;
   }
 
   .newsletter-form {
@@ -1577,7 +1699,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
 
   .container {
-    padding: 0 12px;
+    padding: 0 12px !important;
   }
 
   .auth-page {

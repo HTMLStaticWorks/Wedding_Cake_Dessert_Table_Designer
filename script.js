@@ -136,11 +136,16 @@ const init = () => {
         // Close all other items
         faqItems.forEach(otherItem => {
           otherItem.classList.remove('active');
+          const otherQ = otherItem.querySelector('.faq-question');
+          if (otherQ) otherQ.setAttribute('aria-expanded', 'false');
         });
 
         // Toggle current item
         if (!isActive) {
           item.classList.add('active');
+          question.setAttribute('aria-expanded', 'true');
+        } else {
+          question.setAttribute('aria-expanded', 'false');
         }
       });
     }
